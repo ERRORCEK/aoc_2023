@@ -3,12 +3,12 @@
 import re
 
 
-def parse_input(filename: str = "input") -> list[str]:
+def parse_input(filename: str = "input") -> list:
     with open(filename, encoding="utf-8") as _:
         return _.read().splitlines()
 
 
-def part_one(lines: list[str]):
+def part_one(lines: list):
     result = 0
     for line in lines:
         digits = re.findall(r"\d", line)
@@ -25,7 +25,7 @@ def convert(n):
     return n
 
 
-def part_two(lines: list[str]):
+def part_two(lines: list):
     result = 0
     for line in lines:
         digits = list(map(convert, re.findall(
