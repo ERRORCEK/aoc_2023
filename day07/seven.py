@@ -3,12 +3,12 @@
 from collections import Counter
 
 
-def parse_input(filename: str = "input") -> list:
+def parse_input(filename: str = "input") -> list[str]:
     with open(filename, encoding="utf-8") as _:
         return _.read().splitlines()
 
 
-def label_to_number(cards, wildcard=False):
+def label_to_number(cards, wildcard=False) -> list[int]:
     mapping = {
         "A": 14,
         "K": 13,
@@ -19,7 +19,7 @@ def label_to_number(cards, wildcard=False):
     return [int(mapping.get(card, card)) for card in cards]
 
 
-def get_score(cards, wildcard=False):
+def get_score(cards, wildcard=False) -> int:
     cards = list(cards)
 
     jokers = 0
@@ -47,7 +47,7 @@ def get_score(cards, wildcard=False):
     return rank_score
 
 
-def calculate_score(lines, wildcard=False):
+def calculate_score(lines, wildcard=False) -> int:
     hands = [(label_to_number(hand[0], wildcard=wildcard), int(hand[1]), get_score(hand[0], wildcard=wildcard))
              for hand in [line.split() for line in lines]]
     hands = sorted(hands, key=lambda hand: (hand[2], hand[0]))
