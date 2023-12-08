@@ -1,4 +1,4 @@
-""" Day six """
+""" Day seven """
 
 from collections import Counter
 
