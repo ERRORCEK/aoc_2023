@@ -62,7 +62,7 @@ def parse_map(lines: list[str]) -> tuple[list, set]:
                  for i, v in enumerate(symbol_connections[sym]) if v == 1]
         for dy, dx in _dirs:
             queue.append((pos[0] + dy, pos[1] + dx))
-    print(type(_map))
+
     return _map, visited
 
 
