@@ -2,9 +2,11 @@
 
 from functools import cache
 
+
 def parse_input(filename: str = "input") -> list[str]:
     with open(filename, encoding="utf-8") as _:
         return _.read().splitlines()
+
 
 @cache
 def get_possible_count(springs, groups, prev_size=0, must_operational=False):
@@ -29,7 +31,7 @@ def get_possible_count(springs, groups, prev_size=0, must_operational=False):
 
     if curr == "?":
         return get_possible_count("#" + rest, groups, prev_size, must_operational) + \
-               get_possible_count("." + rest, groups, prev_size, must_operational)
+            get_possible_count("." + rest, groups, prev_size, must_operational)
 
     if curr == "#":
         if must_operational:
@@ -56,6 +58,7 @@ def get_possible_count(springs, groups, prev_size=0, must_operational=False):
             else:
                 return get_possible_count(rest, groups[1:], 0, False)
 
+
 def part_one(lines: list[str]):
     _sum = 0
 
@@ -66,12 +69,13 @@ def part_one(lines: list[str]):
 
     print(_sum)
 
+
 def part_two(lines: list[str]):
     _sum = 0
 
     for line in lines:
         springs, groups = line.split()
-        
+
         springs = "?".join([springs] * 5)
         groups = ",".join([groups] * 5)
         groups = tuple([*map(int, groups.split(","))])

@@ -2,16 +2,20 @@
 
 from functools import reduce
 
+
 def parse_input(filename: str = "input") -> list[str]:
-        with open(filename, encoding="utf-8") as _:
-            return _.read().splitlines()
+    with open(filename, encoding="utf-8") as _:
+        return _.read().splitlines()
+
 
 def calc_hash(item):
-      return reduce(lambda acc, c: (acc + ord(c)) * 17 % 256, item, 0)
+    return reduce(lambda acc, c: (acc + ord(c)) * 17 % 256, item, 0)
+
 
 def part_one(lines: list[str]):
     data = lines[0].split(",")
     print(sum(calc_hash(item) for item in data))
+
 
 def part_two(lines: list[str]):
     data = lines[0].split(",")
@@ -34,6 +38,7 @@ def part_two(lines: list[str]):
             power += boxid1 * slot_id * lens[1]
 
     print(power)
+
 
 if __name__ == '__main__':
     input_lines = parse_input()

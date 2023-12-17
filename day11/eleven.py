@@ -5,6 +5,7 @@ def parse_input(filename: str = "input") -> list[str]:
     with open(filename, encoding="utf-8") as _:
         return _.read().splitlines()
 
+
 def calculate_length(data: list[str], expand_level: int) -> int:
     expand_cols = []
     expand_rows = []
@@ -41,9 +42,11 @@ def calculate_length(data: list[str], expand_level: int) -> int:
 
     return _sum
 
+
 def part_one(lines: list[str]):
     expand_level = 2
     print(calculate_length(lines, expand_level))
+
 
 def part_two(lines: list[str]):
     expand_level = 1000000

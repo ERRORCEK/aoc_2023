@@ -5,13 +5,16 @@ def parse_input(filename: str = "input") -> list[str]:
     with open(filename, encoding="utf-8") as _:
         return _.read().splitlines()
 
+
 def part_one(data: list[str]):
     maps = ("\n".join(data)).split("\n\n")
     print(sum(find_mirror(_map) for _map in maps))
 
+
 def part_two(data: list[str]):
     maps = ("\n".join(data)).split("\n\n")
     print(sum(find_mirror(_map, diff=1) for _map in maps))
+
 
 def find_mirror(_map: str, diff=0) -> int:
     _map_h = _map.split("\n")
@@ -26,6 +29,7 @@ def find_mirror(_map: str, diff=0) -> int:
                 return i * weight
 
     return -1
+
 
 if __name__ == '__main__':
     input_lines = parse_input()
